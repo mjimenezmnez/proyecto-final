@@ -36,6 +36,3 @@ class MovieApi:
         else:
             return None
 
-prueba = MovieApi()
-print(prueba.get_title_year('harry potter'))
-print(prueba.get_title_id('tt1201607'))
