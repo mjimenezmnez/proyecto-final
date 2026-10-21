@@ -1,12 +1,10 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI
 from consultas import *
 from pydantic import BaseModel
 from requests_omdbapi import MovieApi
 from fastapi.middleware.cors import CORSMiddleware
 
 import datetime
-
-today = datetime.date.today()
 
 app = FastAPI()
 movie_api = MovieApi()
@@ -21,13 +19,12 @@ app.add_middleware(
 
 # Clase que contiene lo que el usuario podra añadir 
 class Comment(BaseModel):
+    id_film:str
     person:str
     comment:str
 
 # Clase que crea la fecha para que el usuario no la pueda modificar 
-class CommentBD(BaseModel):
-    person:str 
-    comment:str
+class CommentBD(Comment):
     date:str
 
 @app.get("/search/films",tags=['Movies'])
@@ -38,17 +35,23 @@ def index(title:str, year:int = None):
 def search_film(imbd_id:str):
     return movie_api.get_title_id(imbd_id)
 
-@app.get("/search/films/{imbd_id}/comment", tags=['Comments'])
+@app.get("/search/films/{film_id}/comment", tags=['Comments'])
 def search_comment(film_id):
     return select_by_film_id(film_id)
 
 @app.post("/search/films/comment", tags=['Comments'])
 def post_comment(movie:Comment):
+    today = datetime.date.today()
+
     try:
-        new_comment = CommentBD(person=movie.person,comment=movie.comment,date=str(today))
-        insert_new_coment(new_comment.person,new_comment.comment,new_comment.date)
+        new_comment = CommentBD(id_film=movie.id_film,
+                                person=movie.person,
+                                comment=movie.comment,
+                                date=str(today))
+        
+        insert_new_coment([new_comment.id_film,new_comment.person,new_comment.comment,new_comment.date])
         return {'mensaje':'registro correcto'}
 
     except Exception as ex:
-        print(ex)
-        return {'error':'ha fallado el registro'}
+        print("error:" "ha fallado el registro")
+        

@@ -18,11 +18,13 @@ def select_by_film_id(film_id:str):
 def insert_new_coment(data):
     try:
 
-        conexionInsert = Conexion('INSERT INTO comentarios (id_pelicula, persona,comentario,fecha) VALUES (?,?,?,?);', data)
+        conexionInsert = Conexion('INSERT INTO comentarios (id_pelicula,persona,comentario,fecha) VALUES (?,?,?,?);', data)
         conexionInsert.res
+        conexionInsert.conexion.commit() #lo guarda 
+    
     except sqlite3.Error as error:
         print(error)
-
+    
     conexionInsert.conexion.close()
     
     
