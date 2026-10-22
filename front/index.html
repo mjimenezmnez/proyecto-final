@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Logo pricipal en la cabecera de la pagina-->
     <header class="text-center py-8">
         <div class="logo">
             <span class="spark" style="left:-26px;top:-4px">✨</span>
@@ -17,31 +18,88 @@
             <span class="spark" style="right:-22px;top:42px;animation-delay:.8s">💖</span>
             <span class="spark" style="right:30px;top:-16px;font-size:20px;animation-delay:1.4s">⭐</span>
         </div>
-        <p class="opacity-70 mt-2">Busca pelis, ponles nota y suelta el chisme 🎬💬</p>
+        <p class="opacity-70 mt-2">Busca pelis y suelta el chisme 🎬💬</p>
     </header>
+
     
-<section class="px-4">
-    <div class="max-w-5xl mx-auto bg-base-300 rounded-3xl p-6 shadow-md border border-pink-200">
-        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4">
 
-            <select class="select neutral rounded-full w-full sm:w-1/4 min-w-0" id="opciones">
-                <option disabled selected>Elige una búsqueda</option>
-                <option>🎀 Título</option>
-                <option>🔑 ID de IMDb</option>
-            </select>
+    <!--Busqueda-->
+    <form class="px-4">
+        <!-- Contenedor que contiene todo lo de la busqueda -->
+        <div class="max-w-5xl mx-auto bg-base-300 rounded-3xl p-6 shadow-md border border-pink-200">
+            <!-- Agrupar todo en una sola linea -->
+            <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4">
 
-            <input type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" id="pelicula"/>
-            <input type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" id="anio" maxlength="4"/>
-            <button class="btn btn-primary rounded-full" id="btnBuscar">Buscar 🔍</button>
+                <select class="select neutral rounded-full w-full sm:w-1/4 min-w-0" id="opciones">
+                    <option disabled selected>Elige una búsqueda</option>
+                    <option>🎀 Título</option>
+                    <option>🔑 ID de IMDb</option>
+                </select>
+
+                <input type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" id="pelicula"/>
+                <input type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" id="anio" maxlength="4"/>
+                <button class="btn btn-primary rounded-full" id="btnBuscar">Buscar 🔍</button>
+            </div>
         </div>
-    </div>
-</section>
+    </form>
+
+    <!--Resultados-->
+    <section class="md:w-1/2 px-4 mt-8 mb-12">
+
+        <!-- Contenedor de la tabla -->
+        <div class="w-full rounded-xl border border-base-300 overflow-hidden">
+
+            <!-- Cabecera integrada -->
+            <div class="bg-base-300 text-primary-content px-4 py-3">
+                <h2 class="text-lg text-center font-bold">Resultados 🎬</h2>
+            </div>
+
+            <!-- Tabla -->
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th>Póster</th>
+                            <th>Nombre</th>
+                            <th>Año</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="avatar">
+                                    <div class="h-16 w-12">
+                                        <img
+                                            src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+                                            alt="Póster de Barbie"
+                                        />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="font-bold">Barbie</td>
+                            <td>2023</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Ficchs descriptiva de la pelicula seleccionada-->
+    <section class="md:w-1/2 md:ml-auto px-4 mt-8 mb-12">
 
 
+    </section>
 
-
-    
-    
+        
+    <footer class="footer sm:footer-horizontal footer-center bg-base-300 text-primary-content p-4">
+        <aside>
+            <p>María Jiménez Martínez - Proyecto final Keepcoding 2026</p>
+        </aside>
+    </footer>
     
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
