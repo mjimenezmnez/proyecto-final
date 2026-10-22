@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <!-- Fuente que sirve para el logo-->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Logo pricipal en la cabecera de la pagina-->
@@ -38,61 +38,119 @@
 
                 <input type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" id="pelicula"/>
                 <input type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" id="anio" maxlength="4"/>
-                <button class="btn btn-primary rounded-full" id="btnBuscar">Buscar 🔍</button>
+                <button class="btn btn-primary rounded-full" id="btnBuscar" onclick="hola()">Buscar 🔍</button>
             </div>
         </div>
     </form>
 
     <!--Resultados-->
-    <section class="md:w-1/2 px-4 mt-8 mb-12">
+    <div class="flex flex-col md:flex-row gap-4 items-start mt-8">
+        <section class="w-full md:w-1/2 px-4 mb-12">
 
-        <!-- Contenedor de la tabla -->
-        <div class="w-full rounded-xl border border-base-300 overflow-hidden">
+            <!-- Contenedor de la tabla -->
+            <div class="w-full rounded-xl border border-base-300 overflow-hidden">
 
-            <!-- Cabecera integrada -->
-            <div class="bg-base-300 text-primary-content px-4 py-3">
-                <h2 class="text-lg text-center font-bold">Resultados 🎬</h2>
-            </div>
+                <!-- Cabecera integrada -->
+                <div class="bg-base-300 text-primary-content px-4 py-3">
+                    <h2 class="text-lg text-center font-bold">Resultados 🎬</h2>
+                </div>
 
-            <!-- Tabla -->
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th>Póster</th>
-                            <th>Nombre</th>
-                            <th>Año</th>
-                        </tr>
-                    </thead>
+                <!-- Tabla -->
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>Póster</th>
+                                <th>Nombre</th>
+                                <th>Año</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="avatar">
-                                    <div class="h-16 w-12">
-                                        <img
-                                            src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
-                                            alt="Póster de Barbie"
-                                        />
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="avatar">
+                                        <div class="h-16 w-12">
+                                            <img
+                                                src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+                                                alt="Póster"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="font-bold">Barbie</td>
-                            <td>2023</td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </td>
+                                <td class="font-bold">Barbie</td>
+                                <td>2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <!-- Ficha descriptiva de la pelicula seleccionada-->
+        <section class="w-full md:w-1/2 px-4 mb-12">
+            <!-- Contenedor de la card -->
+            <div class="w-full rounded-xl border border-base-300 overflow-hidden">
+                <!-- Cabecera integrada -->
+                <div class="bg-base-300 text-primary-content px-4 py-3">
+                    <h2 class="text-lg text-center font-bold">Especificaciones 🍿</h2>
+                </div>
 
-    <!-- Ficchs descriptiva de la pelicula seleccionada-->
-    <section class="md:w-1/2 md:ml-auto px-4 mt-8 mb-12">
+                <!-- Tarjeta de la pelicula-->
+                <div class="card card-side bg-base-100 ">
+                    <!--La imagen-->
+                    <figure class="w-2/5 shrink-0">
+                        <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"alt="Movie" 
+                        class="w-full h-full object-cover"/>
+                    </figure>
+                    <!-- El texto -->
+                    <div class="card-body lex-1 min-w-0 p-5">
+                        <div class="flex items-center justify-between gap-3">
+                            <h1 class="text-3xl font-bold" id="titulo">Barbie</h1>
+                            <h1 class="text-2xl font-semibold shrink-0">2023</h1>
+                        </div>
+                        
+                        <div class="badge badge-soft badge-primary" id="genero">Género</div>
+
+                        <div class="justify-between">
+                            <h2 class="font-bold text-lg">Id OMDb 🪪:</h2>
+                            <p class="text-base" id="id_omdb">tt1517268</p>
+                        </div>
+                        <h2 class="font-bold text-lg mt-2">Descripción 💌:</h2>
+                        <p class="text-lg leading-relaxed text-justify" id="descripcion">Barbie and Ken are having the time of their lives in the seemingly perfect world of Barbie Land. However, when they get a chance to go to the outside world, 
+                                they soon discover the joys and perils of living among regular humans</p>
+                        
+                    </div>
+                </div>
+                <!-- Sección de comentarios -->
+                <div class="mt-6 border-t border-base-300 p-4">
+                    <h2 class="text-xl font-bold mb-3">💬 Comentarios</h2>
+
+                    <form class="flex flex-col gap-3">
+                        <input id="persona" type="text" placeholder="Tu nombre" class="input" input-bordered w-full />
+
+                        <input id="comentario" placeholder="¿Qué te ha parecido la película? 💗" class="input input-bordered w-full h-16"></input>
+                        
+                        <button type="submit" class="btn btn-primary">✨Publicar comentario✨</button>
+                    </form>
+                </div>
+
+                <div class="mt-6 border-t border-base-300 p-4">
+                    <h2 class="text-xl font-bold mb-3">Publicaciones de comentarios</h2>
+
+                </div>
 
 
-    </section>
+
+
+
+            </div>
+
+
+        </section>
+    </div>
 
         
     <footer class="footer sm:footer-horizontal footer-center bg-base-300 text-primary-content p-4">
@@ -101,7 +159,7 @@
         </aside>
     </footer>
     
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 </html>
