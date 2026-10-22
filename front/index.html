@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="personalizado">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ChismeCine</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- Fuente que sirve para el logo-->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="text-center py-8">
+        <div class="logo">
+            <span class="spark" style="left:-26px;top:-4px">✨</span>
+            ChismeCine
+            <span class="spark" style="right:-22px;top:42px;animation-delay:.8s">💖</span>
+            <span class="spark" style="right:30px;top:-16px;font-size:20px;animation-delay:1.4s">⭐</span>
+        </div>
+        <p class="opacity-70 mt-2">Busca pelis, ponles nota y suelta el chisme 🎬💬</p>
+    </header>
     
+<section class="px-4">
+    <div class="max-w-5xl mx-auto bg-base-300 rounded-3xl p-6 shadow-md border border-pink-200">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4">
+
+            <select class="select neutral rounded-full w-full sm:w-1/4 min-w-0" id="opciones">
+                <option disabled selected>Elige una búsqueda</option>
+                <option>🎀 Título</option>
+                <option>🔑 ID de IMDb</option>
+            </select>
+
+            <input type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" id="pelicula"/>
+            <input type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" id="anio" maxlength="4"/>
+            <button class="btn btn-primary rounded-full" id="btnBuscar">Buscar 🔍</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+    
+    
+    
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 </html>

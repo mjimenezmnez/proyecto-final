@@ -1,0 +1,52 @@
+/* ESTE ES EL ÚNICO CSS PROPIO: el logo. Todo lo demás lo hace DaisyUI. */
+  .logo{
+    display:inline-block; position:relative;
+    font-family:'Pacifico',cursive;
+    font-size:clamp(44px,11vw,76px);   /* tamaño que se adapta a la pantalla */
+    line-height:1.1;
+    color:#ff3d94;                     /* relleno rosa */
+    -webkit-text-stroke:9px #fff;      /* contorno blanco grueso */
+    paint-order:stroke fill;           /* contorno por fuera de la letra */
+    text-shadow:0 5px 0 #c04bff;       /* sombra lila sólida = efecto 3D */
+    filter:drop-shadow(0 6px 8px rgba(192,75,255,.35));
+    transform:rotate(-3deg);           /* inclinado tipo pegatina */
+  }
+  .spark{position:absolute;font-size:26px;animation:tw 2.4s ease-in-out infinite}
+  @keyframes tw{50%{transform:scale(1.4) rotate(20deg);opacity:.6}}
+  
+  /* Latra para todo*/
+  body{font-family: 'Fredoka', system-ui, sans-serif;}
+
+  /* Para tener los colores y formas predeterminadas con DasisyUI*/
+  [data-theme="personalizado"] {
+  color-scheme: light;
+  --color-base-100: oklch(94% 0.028 342.258);
+  --color-base-200: oklch(97% 0.020 343.198);
+  --color-base-300: oklch(89% 0.061 343.231);
+  --color-base-content: oklch(40% 0.153 2.432);
+  --color-primary: oklch(71% 0.202 349.761);
+  --color-primary-content: oklch(28% 0.109 3.907);
+  --color-secondary: oklch(97% 0 0);
+  --color-secondary-content: oklch(14% 0 0);
+  --color-accent: oklch(94% 0.029 294.588);
+  --color-accent-content: oklch(27% 0.072 132.109);
+  --color-neutral: oklch(96% 0.007 247.896);
+  --color-neutral-content: oklch(13% 0.028 261.692);
+  --color-info: oklch(95% 0.045 203.388);
+  --color-info-content: oklch(30% 0.056 229.695);
+  --color-success: oklch(76.1% 0.102 128.850);
+  --color-success-content: oklch(27% 0.072 132.109);
+  --color-warning: oklch(81% 0.117 11.638);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(82.9% 0.266 16.439);
+  --color-error-content: oklch(28% 0.109 3.907);
+  --radius-selector: 0rem;
+  --radius-field: 2rem;
+  --radius-box: 0rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
