@@ -20,9 +20,7 @@
         </div>
         <p class="opacity-70 mt-2">Busca pelis y suelta el chisme 🎬💬</p>
     </header>
-
     
-
     <!--Busqueda-->
     <form class="px-4">
         <!-- Contenedor que contiene todo lo de la busqueda -->
@@ -60,7 +58,7 @@
                     <table class="table w-full">
                         <thead>
                             <tr>
-                                <th>Póster</th>
+                                <th class="w-16">Póster</th>
                                 <th>Nombre</th>
                                 <th>Año</th>
                             </tr>
@@ -68,9 +66,9 @@
 
                         <tbody>
                             <tr>
-                                <td>
+                                <td class="py-4 w-40">
                                     <div class="avatar">
-                                        <div class="h-16 w-12">
+                                        <div class="h-28 w-22">
                                             <img
                                                 src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
                                                 alt="Póster"
@@ -78,8 +76,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="font-bold">Barbie</td>
-                                <td>2023</td>
+                                <td class="py-6 text-lg font-bold">Barbie</td>
+                                <td class="py-6 text-sm">2023</td>
                             </tr>
                         </tbody>
                     </table>
@@ -127,7 +125,7 @@
                 <!-- Sección de comentarios -->
                 <div class="mt-6 border-t border-base-300 p-4">
                     <h2 class="text-xl font-bold mb-3">💬 Comentarios</h2>
-
+                    <!--Formulario para luego postear comentario-->
                     <form class="flex flex-col gap-3">
                         <input id="persona" type="text" placeholder="Tu nombre" class="input" input-bordered w-full />
 
@@ -137,10 +135,30 @@
                     </form>
                 </div>
 
-                <div class="mt-6 border-t border-base-300 p-4">
-                    <h2 class="text-xl font-bold mb-3">Publicaciones de comentarios</h2>
+                <div class="mt-4 border-t border-base-300 px-4 pt-4 pb-0">
+                    <h2 class="text-xl font-bold mb-2">📨💖 Publicaciones de comentarios</h2>
 
                 </div>
+
+                <div class="card bg-base-300 rounded-2xl w-[98%] mx-auto p-10 mt-0 mb-5">
+                    <div class="chat chat-start">
+                        
+                        <div class="chat-header">
+                            <span id="persona" class="text-sm">Laura Garcia</span>  
+                            <time id="fecha" class="text-xs opacity-50">2026-10-12</time>
+                        </div>
+                        <div id="comentario" class="chat-bubble text-lg bg-base-200">Me ha gustado muucho!</div>
+                        
+                    </div>
+
+                    
+                        
+                        
+                </div>
+
+
+                </div>
+
 
 
 
