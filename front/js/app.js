@@ -159,4 +159,83 @@ function mostrarComentarios(){
 }
 
 // Conexion con el backend que existen para una pelicula
+function cargarComentarios(idOmdb){
+    const lista = document.getElementById('lista-comentarios');
 
+    fetch(`${URL_BASE}/search/films/${idOmdb}/comment`)
+        .then(response => response.json())
+        .then(data => {
+            lista.innerHTML = '';
+
+            if(data.length === 0 ){
+                lista.innerHTML = 'Todavía no hay comentarios 💗';
+
+            } else {
+                data.forEach(comentario => {
+                    lista.innerHTML += `
+                        <div class="chat chat-start mb-3">
+
+                            <div class="chat-header">
+                                <span class="text-sm">${comentario.persona}</span>
+                                <time class="text-xs opacity-50">${comentario.fecha}</time>
+                            </div>
+
+                            <div class="chat-bubble text-lg bg-base-200">
+                                ${comentario.comentario}
+                            </div>
+
+                        </div>
+                    
+                    `;
+                })
+
+            }
+
+        })
+        .catch(error => console.log('Error al cargar comentarios', error));
+
+}
+
+// Publicar un comentario nuevo 
+function publicarComentario(event){
+    event.preventDefault();
+
+    const persona = document.getElementById('nombre-comentario').value.trim();
+    const comentario = document.getElementById('texto-comentario').value.trim();
+
+    if (persona === '' || comentario === '') {
+        alert('Escribe tu nombre y tu comentario');
+        return;
+    }
+
+    const idOmdb = document.getElementById('id_omdb').textContent;
+
+    const datos = {id_film:idOmdb, person:persona, comment:comentario};
+
+    fetch(`${URL_BASE}/search/films/comment`, {
+        method : 'POST',
+        headers : { 
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    })
+
+        .then(response => response.json())
+        .then(data => {
+            if (data.mensaje === 'registro correcto') {
+                document.getElementById('form-comentario').reset();
+                cargarComentarios(idOmdb);
+            
+            } else { 
+                alert('No se ha podido guardar el comentario');
+            }
+
+
+        })
+        .catch(error => console.log('Error al publicar el comentario', error));
+
+}
+
+// Captura el formulario de comentarios y detecta cuando se envia
+const formComentario = document.getElementById('form-comentario');
+formComentario.addEventListener('submit', publicarComentario);
