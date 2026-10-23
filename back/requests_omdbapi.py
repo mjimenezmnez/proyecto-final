@@ -12,9 +12,7 @@ class MovieApi:
         
 
     def get_title_year(self, title : str, year=None):
-        """
-        Consulta  
-        """
+        
         if year is None:
             response = consulta.get(self.url, params={'s':title, 'apikey':self.api_key})
         else:

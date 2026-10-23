@@ -53,5 +53,6 @@ def post_comment(movie:Comment):
         return {'mensaje':'registro correcto'}
 
     except Exception as ex:
-        print("error:" "ha fallado el registro")
+        print('Error al guardar comenrtario:', ex)
+        return("error:" "ha fallado el registro")
         

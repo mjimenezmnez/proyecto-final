@@ -103,38 +103,45 @@
                             <h2 class="font-bold text-lg">Id OMDb 🪪:</h2>
                             <p id="id_omdb" class="text-base"></p>
                         </div>
+                        <h2 class="font-bold text-lg mt-2">Actores 🎭:</h2>
+                        <p id="actores" class="text-lg leading-relaxed text-justify"></p>
+                        
                         <h2 class="font-bold text-lg mt-2">Descripción 💌:</h2>
                         <p id="descripcion" class="text-lg leading-relaxed text-justify"></p>
+                        
                         
                     </div>
                 </div>
                 <!-- Sección de comentarios -->
-                <div class="mt-6 border-t border-base-300 p-4" style="display: none;">
+                <div id="seccion-comentarios" class="mt-6 border-t border-base-300 p-4" style="display: none;">
                     <h2 class="text-xl font-bold mb-3">💬 Comentarios</h2>
                     <!--Formulario para luego postear comentario-->
-                    <form class="flex flex-col gap-3">
-                        <input id="persona" type="text" placeholder="Tu nombre" class="input" input-bordered w-full />
+                    <form id="form-comentario" class="flex flex-col gap-3">
+                        <input id="nombre-comentario" type="text" placeholder="Tu nombre" class="input" input-bordered w-full />
 
-                        <input id="comentario" placeholder="¿Qué te ha parecido la película? 💗" class="input input-bordered w-full h-16"></input>
+                        <textarea id="texto-comentario" placeholder="¿Qué te ha parecido la película? 💗" 
+                        class="textarea textarea-bordered w-full" rows="3"></textarea>
                         
                         <button type="submit" class="btn btn-primary">✨Publicar comentario✨</button>
                     </form>
                 </div>
                 <!-- Apartado de los comentarios ya publicados de una pelicula -->
-                <div class="mt-4 border-t border-base-300 px-4 pt-4 pb-0" style="display: none;">
-                    <h2 class="text-xl font-bold mb-2">📨💖 Publicaciones de comentarios</h2>
+                <div id="comentarios-publicados" class="mt-4 border-t border-base-300 px-4 pt-4 pb-0" style="display: none;">
+                    <h2 class="text-xl font-bold mb-2">📨💖 Comentarios publicados</h2>
 
-                    <!-- Forma de posteo de comentarios comi un chat -->
-                    <div class="card bg-base-300 rounded-2xl w-[98%] mx-auto p-10 mt-0 mb-5">
+                    <!-- Forma de posteo de comentarios como un chat -->
+                    <div id="lista-comentarios" class="card bg-base-300 rounded-2xl w-[98%] mx-auto p-10 mt-0 mb-5">
+
+                        <!-- JavaScrip añadira cada comentario aqui -->
                         <div class="chat chat-start">
                             
                             <div class="chat-header">
                                 <!-- Nombre de la persona y fecha del comentario-->
-                                <span id="persona" class="text-sm">Laura Garcia</span>  
-                                <time id="fecha" class="text-xs opacity-50">2026-10-12</time>
+                                <span id="persona-comentario" class="text-sm">Laura Garcia</span>  
+                                <time id="fecha-comentario" class="text-xs opacity-50">2026-10-12</time>
                             </div>
                             <!-- Comentario de la persona-->
-                            <div id="comentario" class="chat-bubble text-lg bg-base-200">Me ha gustado muucho!</div>
+                            <div id="comentario-comentario" class="chat-bubble text-lg bg-base-200">Me ha gustado muucho!</div>
                             
                         </div>
 

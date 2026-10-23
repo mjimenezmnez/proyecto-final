@@ -1,5 +1,6 @@
-console.log("javascript")
-const URL_BASE ='http://127.0.0.1:8000'
+console.log("javascript");
+const URL_BASE ='http://127.0.0.1:8000';
+let peliculaSeleccionada = '';
 
 // Se crea la tabla con los resultados 
 function crearFilasTabla(data){
@@ -98,6 +99,8 @@ function mostrarDetallesPelicula(pelicula){
     document.getElementById('id_omdb').textContent = pelicula.imdbID;
     document.getElementById('descripcion').textContent = pelicula.Plot;
     document.getElementById('poster-ficha').src = pelicula.Poster;
+    document.getElementById('actores').textContent = pelicula.Actors;
+
 
     document.getElementById('ficha-pelicula').style.display = 'flex';
 }
@@ -130,6 +133,8 @@ function capturarItemTabla() {
         tabla.rows[i].onclick = function () {
             let idOmdb = this.getAttribute("data-id");
             busquedaId(idOmdb);
+            mostrarComentarios();
+            cargarComentarios(idOmdb);
         };
     }
 }
@@ -146,5 +151,12 @@ function limpiarCampos(){
     document.getElementById('anio').value = '';
 }
 
+// Mostrar la sección de comentarios
+function mostrarComentarios(){
+    document.getElementById('comentarios-publicados').style.display = 'block';
+    document.getElementById('lista-comentarios').style.display = 'block';
 
+}
+
+// Conexion con el backend que existen para una pelicula
 
