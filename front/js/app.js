@@ -84,6 +84,8 @@ function busquedaId(id){
             }
             mostrarDetallesPelicula(data);
             limpiarCampos();
+            mostrarComentarios();
+            cargarComentarios(data.imdbID);
         })
 
         .catch(error => console.log('Error al buscar la película:', error));
@@ -133,8 +135,7 @@ function capturarItemTabla() {
         tabla.rows[i].onclick = function () {
             let idOmdb = this.getAttribute("data-id");
             busquedaId(idOmdb);
-            mostrarComentarios();
-            cargarComentarios(idOmdb);
+            
         };
     }
 }
@@ -153,8 +154,8 @@ function limpiarCampos(){
 
 // Mostrar la sección de comentarios
 function mostrarComentarios(){
+    document.getElementById('seccion-comentarios').style.display = 'block';
     document.getElementById('comentarios-publicados').style.display = 'block';
-    document.getElementById('lista-comentarios').style.display = 'block';
 
 }
 
