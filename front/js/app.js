@@ -25,7 +25,126 @@ function crearFilasTabla(data){
 
 }
 
-//
+// Funcion que busca por titulo y año 
+function buscarPorTitulo(){
+    const titulo = document.getElementById('titulo').value.trim(); // trim() para que quite espacios y ni haya problemas
+    const anio = document.getElementById('anio').value;
+    const ctabla = document.getElementById('cuerpo-tabla');
+    // Por si no se ecribe nada en titulo 
+    if (titulo === ''){
+        alert('Escribe el titulo de una peliula');
+        return;
+    }
+    // Url con titulo 
+    let urlBusquedaTitulo = `${URL_BASE}/search/films?title=${titulo}`;
+    // Url con año si se escribe algo 
+    if (anio != ''){
+        urlBusquedaTitulo += `&year=${anio}`;
+
+    }
+
+    fetch(urlBusquedaTitulo)
+        .then(response => response.json())
+        .then(data => {
+            if (data.Response === 'False' || !data.Search){
+                alert('No se han encontrado películas');
+                ctabla.innerHTML='';
+                return 
+            }
+
+            ctabla.innerHTML= crearFilasTabla(data.Search);
+            capturarItemTabla();
+            limpiarCampos();
+
+
+        })
+        .catch(error => console.log('Error al buscar la películas', error));
+}
+
+// Busqueda por id 
+function busquedaId(id){
+    if (!id){
+        id = document.getElementById('titulo').value.trim();
+    }
+
+    if (id === ''){
+        alert('Escribe el ID de IMDb de la película');
+        return;
+    }
+
+    const urlBusquedaId = `${URL_BASE}/search/films/${id}`
+
+    fetch(urlBusquedaId)
+        .then(response => response.json())
+        .then(data => {
+            if (data.Response === 'False' || !data.imdbID){
+                alert('No se ha encontrado la película');
+                return;
+            }
+            mostrarDetallesPelicula(data);
+            limpiarCampos();
+        })
+
+        .catch(error => console.log('Error al buscar la película:', error));
+
+
+}
+
+// Muestra las los detalles en la ficha de HTML creada 
+function mostrarDetallesPelicula(pelicula){
+    document.getElementById('titulo-ficha').textContent = pelicula.Title;
+    document.getElementById('anio-ficha').textContent = pelicula.Year;
+    document.getElementById('genero').textContent = pelicula.Genre;
+    document.getElementById('id_omdb').textContent = pelicula.imdbID;
+    document.getElementById('descripcion').textContent = pelicula.Plot;
+    document.getElementById('poster-ficha').src = pelicula.Poster;
+
+    document.getElementById('ficha-pelicula').style.display = 'flex';
+}
+
+// Elegir el tipo de busqueda
+function buscarPelicula(){
+    // Obtine el selector de busqueda del HTML
+    const opciones = document.getElementById('opciones');
+    // Obtiene la opcion que el usuario elige 
+    const opcion = opciones.options[opciones.selectedIndex];
+
+    if (opcion.id === 'opcion-titulo'){
+        buscarPorTitulo();
+        
+
+    } else if (opcion.id === 'opcion-imdb'){
+        busquedaId();
+        
+
+    } else {
+        alert('Elige como quieres buscar la película');
+    }
+}
+
+// Capturar la película que se pulsa en la tabla
+function capturarItemTabla() {
+    const tabla = document.getElementById("tabla-principal");
+
+    for (let i = 1; i < tabla.rows.length; i++) {
+        tabla.rows[i].onclick = function () {
+            let idOmdb = this.getAttribute("data-id");
+            busquedaId(idOmdb);
+        };
+    }
+}
+// Activar el botón de búsqueda
+const btnBuscar = document.getElementById('btnBuscar');
+btnBuscar.addEventListener('click', function() {
+    console.log('He pulsado el botón');
+    buscarPelicula();
+});
+
+// Limpiar campos del formulario de busqueda 
+function limpiarCampos(){
+    document.getElementById('titulo').value = '';
+    document.getElementById('anio').value = '';
+}
 
 
 

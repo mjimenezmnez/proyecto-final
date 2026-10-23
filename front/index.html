@@ -28,15 +28,15 @@
             <!-- Agrupar todo en una sola linea -->
             <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4">
 
-                <select id="opciones" class="select neutral rounded-full w-full sm:w-1/4 min-w-0">
-                    <option disabled selected>Elige una búsqueda</option>
-                    <option>🎀 Título</option>
-                    <option>🔑 ID de IMDb</option>
+                <select id="opciones" type="button" class="select neutral rounded-full w-full sm:w-1/4 min-w-0">
+                    <option id="opcion-inicial" disabled selected>Elige una búsqueda</option>
+                    <option id="opcion-titulo">🎀 Título</option>
+                    <option id="opcion-imdb">🔑 ID de IMDb</option>
                 </select>
 
-                <input id="pelicula" type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" />
+                <input id="titulo" type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" />
                 <input id="anio" type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" maxlength="4"/>
-                <button id="btnBuscar" class="btn btn-primary rounded-full">Buscar 🔍</button>
+                <button id="btnBuscar" type="button" class="btn btn-primary rounded-full">Buscar 🔍</button>
             </div>
         </div>
     </form>
@@ -55,7 +55,7 @@
 
                 <!-- Tabla -->
                 <div class="overflow-x-auto">
-                    <table id="tabla" class="table w-full">
+                    <table id="tabla-principal" class="table w-full">
                         <thead>
                             <tr>
                                 <th class="w-16">Póster</th>
@@ -65,17 +65,7 @@
                         </thead>
 
                         <tbody id="cuerpo-tabla">
-                            <tr>
-                                <td class="py-4 w-40">
-                                    <div class="avatar">
-                                        <div class="h-28 w-22">
-                                            <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Póster"/>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="py-6 text-lg font-bold">Barbie</td>
-                                <td class="py-6 text-sm">2023</td>
-                            </tr>
+                            <!-- Esto lo genera JavaScrip -->
                         </tbody>
                     </table>
                 </div>
@@ -94,28 +84,27 @@
                 </div>
 
                 <!-- Tarjeta de la pelicula-->
-                <div class="card card-side bg-base-100" style="display: none;">
+                <div id="ficha-pelicula" class="card card-side bg-base-100" style="display: none;">
                     <!--La imagen-->
                     <figure class="w-2/5 shrink-0">
-                        <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"alt="Movie" 
+                        <img id="poster-ficha" src=""alt="Movie" 
                         class="w-full h-full object-cover"/>
                     </figure>
                     <!-- El texto de la tarjeta de la pelicula seleccionada-->
                     <div class="card-body lex-1 min-w-0 p-5">
                         <div class="flex items-center justify-between gap-3">
-                            <h1 class="text-3xl font-bold" id="titulo">Barbie</h1>
-                            <h1 class="text-2xl font-semibold shrink-0">2023</h1>
+                            <h1 id="titulo-ficha" class="text-3xl font-bold" id="titulo">Barbie</h1>
+                            <h1 id="anio-ficha" class="text-2xl font-semibold shrink-0">2023</h1>
                         </div>
                         
-                        <div class="badge badge-soft badge-primary" id="genero">Género</div>
+                        <div id="genero" class="badge badge-soft badge-primary">Género</div>
 
                         <div class="justify-between">
                             <h2 class="font-bold text-lg">Id OMDb 🪪:</h2>
-                            <p class="text-base" id="id_omdb">tt1517268</p>
+                            <p id="id_omdb" class="text-base"></p>
                         </div>
                         <h2 class="font-bold text-lg mt-2">Descripción 💌:</h2>
-                        <p class="text-lg leading-relaxed text-justify" id="descripcion">Barbie and Ken are having the time of their lives in the seemingly perfect world of Barbie Land. However, when they get a chance to go to the outside world, 
-                                they soon discover the joys and perils of living among regular humans</p>
+                        <p id="descripcion" class="text-lg leading-relaxed text-justify"></p>
                         
                     </div>
                 </div>
