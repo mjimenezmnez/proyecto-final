@@ -17,7 +17,7 @@
   /* Latra para todo*/
   body{font-family: 'Fredoka', system-ui, sans-serif;}
 
-  /* Para tener los colores y formas predeterminadas con DasisyUI*/
+  /* Para tener los colores y formas predeterminadas con DasisyUI, me lo proporciona la pagina*/
   [data-theme="personalizado"] {
   color-scheme: light;
   --color-base-100: oklch(94% 0.028 342.258);

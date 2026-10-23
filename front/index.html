@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChismeCine</title>
+    <title>🎬💬ChismeCine💖</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <!-- Fuente que sirve para el logo-->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
@@ -28,15 +28,15 @@
             <!-- Agrupar todo en una sola linea -->
             <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4">
 
-                <select class="select neutral rounded-full w-full sm:w-1/4 min-w-0" id="opciones">
+                <select id="opciones" class="select neutral rounded-full w-full sm:w-1/4 min-w-0">
                     <option disabled selected>Elige una búsqueda</option>
                     <option>🎀 Título</option>
                     <option>🔑 ID de IMDb</option>
                 </select>
 
-                <input type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" id="pelicula"/>
-                <input type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" id="anio" maxlength="4"/>
-                <button class="btn btn-primary rounded-full" id="btnBuscar" onclick="hola()">Buscar 🔍</button>
+                <input id="pelicula" type="text" class="input rounded-full w-full sm:flex-1 min-w-0" placeholder="Ej: Barbie o tt1517268" />
+                <input id="anio" type="text" class="input rounded-full w-full sm:w-1/5 min-w-0" placeholder="Ej: 2009" maxlength="4"/>
+                <button id="btnBuscar" class="btn btn-primary rounded-full">Buscar 🔍</button>
             </div>
         </div>
     </form>
@@ -55,7 +55,7 @@
 
                 <!-- Tabla -->
                 <div class="overflow-x-auto">
-                    <table class="table w-full">
+                    <table id="tabla" class="table w-full">
                         <thead>
                             <tr>
                                 <th class="w-16">Póster</th>
@@ -64,15 +64,12 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="cuerpo-tabla">
                             <tr>
                                 <td class="py-4 w-40">
                                     <div class="avatar">
                                         <div class="h-28 w-22">
-                                            <img
-                                                src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
-                                                alt="Póster"
-                                            />
+                                            <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Póster"/>
                                         </div>
                                     </div>
                                 </td>
@@ -97,13 +94,13 @@
                 </div>
 
                 <!-- Tarjeta de la pelicula-->
-                <div class="card card-side bg-base-100 ">
+                <div class="card card-side bg-base-100" style="display: none;">
                     <!--La imagen-->
                     <figure class="w-2/5 shrink-0">
                         <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"alt="Movie" 
                         class="w-full h-full object-cover"/>
                     </figure>
-                    <!-- El texto -->
+                    <!-- El texto de la tarjeta de la pelicula seleccionada-->
                     <div class="card-body lex-1 min-w-0 p-5">
                         <div class="flex items-center justify-between gap-3">
                             <h1 class="text-3xl font-bold" id="titulo">Barbie</h1>
@@ -123,7 +120,7 @@
                     </div>
                 </div>
                 <!-- Sección de comentarios -->
-                <div class="mt-6 border-t border-base-300 p-4">
+                <div class="mt-6 border-t border-base-300 p-4" style="display: none;">
                     <h2 class="text-xl font-bold mb-3">💬 Comentarios</h2>
                     <!--Formulario para luego postear comentario-->
                     <form class="flex flex-col gap-3">
@@ -134,27 +131,31 @@
                         <button type="submit" class="btn btn-primary">✨Publicar comentario✨</button>
                     </form>
                 </div>
-
-                <div class="mt-4 border-t border-base-300 px-4 pt-4 pb-0">
+                <!-- Apartado de los comentarios ya publicados de una pelicula -->
+                <div class="mt-4 border-t border-base-300 px-4 pt-4 pb-0" style="display: none;">
                     <h2 class="text-xl font-bold mb-2">📨💖 Publicaciones de comentarios</h2>
 
-                </div>
-
-                <div class="card bg-base-300 rounded-2xl w-[98%] mx-auto p-10 mt-0 mb-5">
-                    <div class="chat chat-start">
-                        
-                        <div class="chat-header">
-                            <span id="persona" class="text-sm">Laura Garcia</span>  
-                            <time id="fecha" class="text-xs opacity-50">2026-10-12</time>
+                    <!-- Forma de posteo de comentarios comi un chat -->
+                    <div class="card bg-base-300 rounded-2xl w-[98%] mx-auto p-10 mt-0 mb-5">
+                        <div class="chat chat-start">
+                            
+                            <div class="chat-header">
+                                <!-- Nombre de la persona y fecha del comentario-->
+                                <span id="persona" class="text-sm">Laura Garcia</span>  
+                                <time id="fecha" class="text-xs opacity-50">2026-10-12</time>
+                            </div>
+                            <!-- Comentario de la persona-->
+                            <div id="comentario" class="chat-bubble text-lg bg-base-200">Me ha gustado muucho!</div>
+                            
                         </div>
-                        <div id="comentario" class="chat-bubble text-lg bg-base-200">Me ha gustado muucho!</div>
+
                         
+                            
+                            
                     </div>
 
-                    
-                        
-                        
                 </div>
+                
 
 
                 </div>
