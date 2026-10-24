@@ -56,18 +56,13 @@ Sustituye url por la dirección de tu repositorio de GitHub, en este caso ya vie
 
 Puede ser con: `python`, `python3` o `py`.
 
+En Windows recomiendo que se con **PowerShell**.
+
 **macOS / Linux**
 
 ```bash
 python3 -m venv entorno
 source entorno/bin/activate
-```
-
-**Windows (CMD)**
-
-```bat
-py -m venv entorno
-entorno\Scripts\activate.bat
 ```
 
 **Windows (PowerShell)**
