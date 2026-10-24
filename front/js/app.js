@@ -160,7 +160,7 @@ function mostrarComentarios(){
 
 }
 
-// Conexion con el backend que existen para una pelicula
+// Conexion con el backend que existe para una pelicula
 function cargarComentarios(idOmdb){
     const lista = document.getElementById('lista-comentarios');
 
