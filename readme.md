@@ -9,7 +9,7 @@ El proyecto está inspirado en los antiguos juegos de chicas de páginas como **
 - 🔎 Buscar películas por título y año.
 - 🪪 Buscar películas mediante su ID de IMDb.
 - 🎞️ Consultar la ficha de una película: póster, título, año, género, actores y descripción.
-- 💬 Publicar comentarios y consultar los de otros usuarios.
+- 💬 Publicar comentarios y ver aquellos que ya sen han hecho sobre la película buscada.
 - 💾 Guardar los comentarios en una base de datos SQLite.
 
 ## 🛠️ Tecnologías
@@ -89,7 +89,7 @@ python -m pip install -r requirements.txt
 
 Es necesario disponer de una clave de OMDb API para buscar películas.
 
-En la carpeta raíz del proyecto, cambia el nombre de `.env.expample` a `.env` y sigue los pasos del propio documento.
+En la carpeta raíz del proyecto, crear el archivo .env a partir de .env.example.
 
 **macOS / Linux**
 
@@ -110,6 +110,8 @@ API_KEY='tu_apikey'
 ```
 
 Sustituir `TU_CLAVE_DE_OMDB` por la clave personal. Si no se dispone de una, se puede solicitar desde [OMDb API](https://www.omdbapi.com/).
+
+Tras la creacion de `.env` **elimina** el fichero `.env.example`
 
 El archivo `.env` contiene información privada y no debe subirse a GitHub. `.env.example` se incluye como plantilla sin ninguna clave real.
 
