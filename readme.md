@@ -46,11 +46,11 @@ proyecto-final/
 ### 1. Descargar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/mjimenezmnez/proyecto-final.git
 cd proyecto-final
 ```
 
-Sustituye `URL_DEL_REPOSITORIO` por la dirección de tu repositorio de GitHub.
+Sustituye url por la dirección de tu repositorio de GitHub, en este caso ya viene dado.
 
 ### 2. Crear y activar el entorno virtual
 
