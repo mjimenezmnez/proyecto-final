@@ -5,6 +5,7 @@ let peliculaSeleccionada = '';
 // Se crea la tabla con los resultados 
 function crearFilasTabla(data){
     let filas = '';
+    // Lo introduce con el formato que elegí 
     data.forEach(pelicula => {
         filas += `<tr data-id="${pelicula.imdbID}">
                         <td class="py-4 w-40">
